@@ -1,0 +1,7 @@
+FROM devops_lab3
+
+WORKDIR /assignment_one
+
+RUN apt-get install -y maven
+
+CMD ["mvn", "test"]
