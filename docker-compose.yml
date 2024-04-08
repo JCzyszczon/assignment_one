@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PA_TOKEN=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
+      
+  tester:
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    depends_on:
+      - builder
