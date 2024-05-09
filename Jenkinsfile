@@ -66,11 +66,11 @@ pipeline {
                 {
                     try 
                     {
-                        sh "docker rm -f devops_lab3 || true"
-                        docker.image("devops_lab3").run("-d --name devops_lab3")
-                        sh "docker save devops_lab3 -o devops_lab3_${env.BUILD_NUMBER}.tar"
-                        archiveArtifacts artifacts: "devops_lab3_${env.BUILD_NUMBER}.tar", onlyIfSuccessful: true
-                        stash includes: "devops_lab3_${env.BUILD_NUMBER}.tar", name: "devops_lab3_${env.BUILD_NUMBER}"
+                        sh "docker rm -f devopsApp || true"
+                        docker.image("devops_lab3").run("-d --name devopsApp")
+                        sh "docker save devopsApp -o devopsApp_${env.BUILD_NUMBER}.tar"
+                        archiveArtifacts artifacts: "devopsApp_${env.BUILD_NUMBER}.tar", onlyIfSuccessful: true
+                        stash includes: "devopsApp_${env.BUILD_NUMBER}.tar", name: "devopsApp_${env.BUILD_NUMBER}"
                     } 
                     catch (Exception e) 
                     {
@@ -85,8 +85,8 @@ pipeline {
                 sh '''
                 echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
                 BUILD_NUMBER=''' + env.BUILD_NUMBER + '''
-                docker tag devops_lab3:latest jczyszczon/devops_lab3:latest
-                docker push jczyszczon/devops_lab3:latest
+                docker tag devopsApp:latest jczyszczon/devopsApp:latest
+                docker push jczyszczon/devopsApp:latest
                 docker logout
                 '''
             }
