@@ -1,4 +1,4 @@
-FROM devops_lab3
+FROM devops-app
 
 WORKDIR /assignment_one
 
