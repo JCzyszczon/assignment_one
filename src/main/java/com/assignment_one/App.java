@@ -145,12 +145,19 @@ public class App
 
         char exit, option;
         do {
-            System.out.print("\nChoose option below\n"+
-                    "A - Addition\n"+
-                    "S - Subtraction\n"+
-                    "M - Multiplication\n"+
-                    "D - Division\n"+
-                    "Enter first letter(A, S, M, D):  ");
+            while (true) {
+               try{
+                    System.out.print("\nChoose option below\n"+
+                        "A - Addition\n"+
+                        "S - Subtraction\n"+
+                        "M - Multiplication\n"+
+                        "D - Division\n"+
+                        "Enter first letter(A, S, M, D):  ");
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    break;
+                }
+            }
 
             option = br.readLine().toLowerCase().charAt(0); //scn.next().toLowerCase().charAt(0);
 
