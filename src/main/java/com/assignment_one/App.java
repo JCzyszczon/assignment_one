@@ -196,5 +196,14 @@ public class App
         System.out.println("\n\t******************************************\n" +
                 "\t*  GOOD BYE. I HOPE YOU COME BACK AGAIN! *\n"+
                 "\t******************************************");
+
+        while (true) {
+            try {
+                System.out.println("test");
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                break;
+            }
+        }
     }
 }
